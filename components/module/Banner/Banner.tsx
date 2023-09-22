@@ -6,7 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
-import Typewriter from "typewriter-effect"; // Import Typewriter
+import Typewriter from "typewriter-effect";
 
 type Router = ReturnType<typeof useNextRouter>;
 
@@ -59,6 +59,7 @@ const Banner: NextPage = () => {
               onInit={(typewriter) => {
                 typewriter
                   .typeString("امیر صدرا نورمحمدی هستم")
+                  .pauseFor(2000)
                   .start()
               }}
               options={{
