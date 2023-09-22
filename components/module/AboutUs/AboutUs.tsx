@@ -10,7 +10,7 @@ const AboutUs = () => {
   return (
     <>
       <Container>
-        <Grid container justifyContent="center" spacing={{md:2,sm:1,xs:1}} m="20px 0px">
+        <Grid container justifyContent="center" spacing={{md:2,sm:1,xs:1}}>
           <Grid
             item
             xs={12}
@@ -19,13 +19,14 @@ const AboutUs = () => {
             sx={{
               flexDirection: "column",
               textAlign: { md: "right", sm: "right", xs: "right" },
+              direction:"rtl"
             }}
           >
             <Typography color="red" fontWeight="bold" variant="h6">
               درباره من
             </Typography>
             <Typography fontWeight="bold" variant="h3">
-            با من همراه شوید
+            <span style={{color:"red", fontSize:"70px"}}>01</span> با من همراه شوید
             </Typography>
             <Typography
               fontWeight="bold"
