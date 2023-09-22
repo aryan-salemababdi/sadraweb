@@ -54,12 +54,15 @@ const Banner: NextPage = () => {
           <Typography fontWeight="bold" variant="h3">
             <span style={{ color: "red" }}>سلام</span>، من
           </Typography>
-          <Typography fontWeight="bold" variant="h2">
+          <Typography fontWeight="bold" variant="h2" sx={{ textAlign: "right" }}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
                   .typeString("امیر صدرا نورمحمدی هستم")
-                  .start();
+                  .start()
+              }}
+              options={{
+                loop: true,
               }}
             />
           </Typography>
