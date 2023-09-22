@@ -10,7 +10,7 @@ const AboutUs = () => {
   return (
     <>
       <Container>
-        <Grid container justifyContent="center" spacing={3} m="20px 0px">
+        <Grid container justifyContent="center" spacing={{md:2,sm:1,xs:1}} m="20px 0px">
           <Grid
             item
             xs={12}
