@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactElement, ReactNode } from "react";
 import { useRouter as useNextRouter, usePathname } from "next/navigation";
@@ -99,7 +98,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
                         onClick={handleClick}
-                        sx={{color:scroll > 30 || currentPath !== "/" ? "black" : "#fff"}}
+                        sx={{color:"#fff"}}
                       >
                         <MenuIcon />
                       </Button>
@@ -114,7 +113,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                       >
                         <Link
                           href="/"
-                          style={{ textDecoration: "none", color: "white" }}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
@@ -124,7 +123,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                         </Link>
                         <Link
                           href="/project"
-                          style={{ textDecoration: "none", color: "white" }}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
@@ -134,11 +133,11 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                         </Link>
                         <Link
                           href="/categorys"
-                          style={{ textDecoration: "none", color: "white" }}
+                          style={{ textDecoration: "none", color: "black" }}
                         ></Link>
                         <Link
                           href="/contactus"
-                          style={{ textDecoration: "none", color: "white" }}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
@@ -148,7 +147,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                         </Link>
                         <Link
                           href="/contactus"
-                          style={{ textDecoration: "none", color: "white" }}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
