@@ -28,7 +28,7 @@ const Resume = () => {
     <div style={{ margin: "30px 0px" }}>
       <Container>
         <div style={mystyle}>
-          <Typography fontWeight="bold" variant="h3" m="10px 0px">
+          <Typography fontWeight="bold" variant="h3" m="10px 0px" textAlign="center">
             بیاید درباره برنامه پیشرو شما صحبت کنیم
             <Divider sx={{ backgroundColor: "red", borderWidth: "1.5px" }} />
           </Typography>
