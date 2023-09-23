@@ -51,14 +51,12 @@ const Resume = () => {
             href="https://s6.uupload.ir/filelink/3RY6SliiHmqZ_a6ce9765a6/aryansalemabadicvprogramming_lhe9.pdf"
             download
           >
-            <Button>
               <Typography color="#686868">
                 دانلود رزومه{" "}
                 <span style={{ color: "red" }}>
                   <DownloadIcon sx={{ fontSize: "20px" }} />
                 </span>
               </Typography>
-            </Button>
           </Link>
         </div>
       </Container>
