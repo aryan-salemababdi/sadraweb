@@ -46,22 +46,22 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
             display="grid"
             gridAutoColumns="auto"
             gridTemplateColumns={{
-              md: "repeat(3,auto)",
-              sm: "repeat(2,auto)",
-              xs: "repeat(1,auto)",
+              md: "repeat(3,1fr)",
+              sm: "repeat(2,1fr)",
+              xs: "repeat(1,1fr)",
             }}
             justifyContent="center"
             alignItems="center"
+            p={2}
           >
             {data.slice(0, 3).map((item: any) => (
+            <Grid m={1} item key={item.id}>
               <Card
                 sx={{
-                  margin: "10px",
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
                 }}
-                key={item.id}
               >
                 <CardHeader
                   avatar={
@@ -107,6 +107,7 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
                   </CardActions>
                 </Grid>
               </Card>
+            </Grid>
             ))}
           </Grid>
         </Container>
