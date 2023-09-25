@@ -1,0 +1,75 @@
+.contact-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .contact-tooltip {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    width:fit-content;
+  }
+  
+  .contact-tooltip-instagram {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+    bottom: -35px;
+    left: 75%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+  .contact-tooltip-telephone{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+    bottom: -35px;
+    left: 20%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+  .contact-tooltip-email{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+  .contact-link:hover .contact-tooltip {
+    display: block;
+  }
+  
+  .contact-link:hover .contact-tooltip-instagram {
+    display: block;
+  }
+  .contact-link:hover .contact-tooltip-telephone {
+    display: block;
+  }
+  .contact-link:hover .contact-tooltip-email {
+    display: block;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-5px);
+  }
+  
