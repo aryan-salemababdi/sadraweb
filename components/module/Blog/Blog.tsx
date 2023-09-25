@@ -46,23 +46,22 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
             display="grid"
             gridAutoColumns="auto"
             gridTemplateColumns={{
-              md: "repeat(3,1fr)",
-              sm: "repeat(2,1fr)",
-              xs: "repeat(1,1fr)",
+              md: "repeat(3,auto)",
+              sm: "repeat(2,auto)",
+              xs: "repeat(1,auto)",
             }}
             justifyContent="center"
-            alignItems="center"
             p={2}
           >
-            {data.slice(0, 3).map((item: any) => (
-            <Grid m={1} item key={item.id}>
+            {data.slice(data.length-4, data.length-1).map((item: any) => (
+              <Box m={2} key={item.id}>
               <Card
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
+              sx={{
+                height: "100%",
+                display:"flex",
+                flexDirection:"column"
+              }}
+                >
                 <CardHeader
                   avatar={
                     <Avatar src="images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
@@ -94,20 +93,20 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
                 <Grid sx={{ marginTop: "auto" }}>
                   <Divider variant="middle" sx={{ marginTop: "auto" }} />
                   <CardActions>
-                      <Button variant="outlined"
-                       size="small"
-                       sx={{ borderRadius: 3, width: "100%" }}
-                       color="error"
-                       onClick={()=>{
+                    <Button variant="outlined"
+                      size="small"
+                      sx={{ borderRadius: 3, width: "100%" }}
+                      color="error"
+                      onClick={() => {
                         router.push(`/blogs/${item.id}`)
-                       }}
-                       >
-                        مطالعه مقاله
-                      </Button>
+                      }}
+                    >
+                      مطالعه مقاله
+                    </Button>
                   </CardActions>
                 </Grid>
               </Card>
-            </Grid>
+              </Box>
             ))}
           </Grid>
         </Container>
