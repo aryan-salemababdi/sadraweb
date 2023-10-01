@@ -41,7 +41,7 @@ const Resume = () => {
             color="error"
             sx={{ margin: "20px 0px" }}
             onClick={() => {
-              router.push("/contactus");
+              router.push("/contactme");
             }}
           >
             <Typography fontWeight="div" variant="h6" textAlign="right">

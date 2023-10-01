@@ -51,7 +51,7 @@ const AboutUs = () => {
               color="error"
               sx={{ margin: "10px 0px" }}
               onClick={() => {
-                router.push("/contactus");
+                router.push("/contactme");
               }}
             >
               <Typography
