@@ -122,26 +122,12 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                           </MenuItem>
                         </Link>
                         <Link
-                          href="/project"
+                          href="/blogs"
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
                               وبلاگ
-                            </Typography>
-                          </MenuItem>
-                        </Link>
-                        <Link
-                          href="/categorys"
-                          style={{ textDecoration: "none", color: "black" }}
-                        ></Link>
-                        <Link
-                          href="/contactus"
-                          style={{ textDecoration: "none", color: "black" }}
-                        >
-                          <MenuItem onClick={handleClose}>
-                            <Typography fontWeight="bold" variant="h6">
-                             رویداد ها
                             </Typography>
                           </MenuItem>
                         </Link>
@@ -188,7 +174,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                   >
                     <ListItem>
                       <Link
-                        href="/project"
+                        href="/blogs"
                         style={{ textDecoration: "none", color: "#ffffff" }}
                       >
                         <Typography
@@ -201,29 +187,6 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid
-                    item
-                    sx={{ display: { md: "block", sm: "none", xs: "none" } }}
-                  >
-                    <ListItem>
-                      <Link
-                        href="/project"
-                        style={{ textDecoration: "none", color: "#ffffff" }}
-                      >
-                        <Typography
-                          fontWeight="bold"
-                          variant="h6"
-                          color="white"
-                        >
-                       رویداد ها
-                        </Typography>
-                      </Link>
-                    </ListItem>
-                  </Grid>
-                  <Grid
-                    item
-                    sx={{ display: { md: "block", sm: "none", xs: "none" } }}
-                  ></Grid>
                   <Grid
                     item
                     sx={{ display: { md: "block", sm: "none", xs: "none" } }}
@@ -243,10 +206,6 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid
-                    item
-                    sx={{ display: { md: "block", sm: "none", xs: "none" } }}
-                  ></Grid>
                 </Grid>
               </List>
             </Grid>
