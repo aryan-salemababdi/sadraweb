@@ -42,7 +42,7 @@ const LoginPage = () => {
             if (data.status === 200) {
                 setError(false)
                 setSuccess(true)
-                router.push("/")
+                router.push("/dashboard")
             }
             else {
                 setSuccess(false)
