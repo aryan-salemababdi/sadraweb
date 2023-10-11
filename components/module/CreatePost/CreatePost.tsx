@@ -49,7 +49,7 @@ const CreatePost: NextPage<ICreatePost> = ({onSelected}) => {
         if (quill) {
             const formData = {
                 value: value,
-                postImage: dataPost.postImage[2],
+                postImage: dataPost.postImage.name,
                 title: subjectValue,
             };
     

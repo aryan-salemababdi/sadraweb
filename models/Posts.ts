@@ -13,7 +13,9 @@ const postsSchema = new Schema({
         type: String,
         require: true,
     }
-})
+},
+{ collection: 'posts' }
+)
 
 const Posts = models.Posts || model("Posts", postsSchema);
 
