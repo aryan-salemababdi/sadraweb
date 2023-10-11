@@ -1,11 +1,17 @@
+"use client"
 import Image from "next/image";
 import React, { useState, ChangeEvent, useEffect } from "react";
-import { Formik, Form, Field } from "formik";
-import { Box, Typography, Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { useQuill } from "react-quilljs";
 import "react-quill/dist/quill.snow.css";
+import { NextPage } from "next";
 
-const CreatePost = () => {
+
+interface ICreatePost {
+    onSelected: (select:number) => void;
+}
+
+const CreatePost: NextPage<ICreatePost> = ({onSelected}) => {
     const { quill, quillRef } = useQuill();
 
     const [subjectValue, setSubjectValue] = useState<string>("")
@@ -39,18 +45,33 @@ const CreatePost = () => {
         postImage: null,
     });
 
-    const sendData = () => {
+    const sendData = async() => {
         if (quill) {
-            console.log("send data");
-            console.log(dataPost.postImage);
+            const formData = {
+                value: value,
+                postImage: dataPost.postImage[2],
+                title: subjectValue,
+            };
+    
+            console.log("send data", formData);
             quill.on('text-change', () => {
                 console.log(quillRef.current.firstChild.innerHTML);
             });
-            console.log(subjectValue);
-            console.log(value, "this is quill editor")
+            const res = await fetch("api/post/posts", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: { "Content-Type": "application/json" },
+            });
+            const data = await res.json();
+            if (data.status === 200){
+                onSelected(0)
+                console.log("sned data:", formData);
+            }
+            else {
+                console.log("error to send data");
+                
+            }
         }
-
-
     }
     return (
         <>
