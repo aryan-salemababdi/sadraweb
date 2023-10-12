@@ -13,7 +13,7 @@ interface IMainNavigation {
 const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
     return (
         <>
-            <Card sx={{ textAlign: "center", height: "390px", width: "200px", display: { md: "block", sm: "none", xs: "none" } }}>
+            <Card sx={{ textAlign: "center", height: "310px", width: "200px", display: { md: "block", sm: "none", xs: "none" } }}>
                 <Grid m="15px 0px">
                     <Image
                         src="/images/sadra2.jpg"
@@ -42,14 +42,6 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
                         </Typography>
                     </Button>
                 </Grid>
-                <Divider />
-                <Grid m="10px 0px">
-                <Button onClick={()=> selectHandller(2)}>
-                        <Typography fontWeight="bold" variant="h5">
-                            تنظیمات حساب کاربری
-                        </Typography>
-                    </Button>
-                </Grid>
             </Card>
 
             <Box
@@ -68,11 +60,6 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
                     <Grid>
                     <Button onClick={()=> selectHandller(1)}>
                             <PostAddIcon />
-                        </Button>
-                    </Grid>
-                    <Grid>
-                    <Button onClick={()=> selectHandller(2)}>
-                            <SettingsIcon />
                         </Button>
                     </Grid>
                 </Card>
