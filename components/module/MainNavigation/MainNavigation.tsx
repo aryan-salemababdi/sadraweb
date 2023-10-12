@@ -43,7 +43,6 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
                     </Button>
                 </Grid>
             </Card>
-
             <Box
                 display={{ md: "none", sm: "block", xs: "block" }}
                 position="fixed"
