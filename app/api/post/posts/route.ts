@@ -4,24 +4,24 @@ import Posts from "@/models/Posts";
 
 
 
-export async function POST(req:any) {
+export async function POST(req: any) {
 
     try {
         await connectDB();
-    } catch(err) {
+    } catch (err) {
         console.log(err);
         return NextResponse.json({ status: 500, message: "Error in connecting to DB" });
     }
 
-    const { title, image, body } =  await req.json();
+    const { title, image, body } = await req.json();
 
-    if(!title || !image || body) return NextResponse.json({status:"422", message:"Invalid Data"});
+    if (!title || !image || !body) return NextResponse.json({ status: 422, message: "Invalid Data" });
 
-    const newPost = await Posts.create({title, image, body});
+    const newPost = await Posts.create({ title, image, body });
 
     console.log(newPost);
 
-    NextResponse.json({status:"201", message: "Post Created"});
-    
-    
+    return NextResponse.json({ status: 200, message: "Post Created" });
+
+
 }

@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 const postsSchema = new Schema({
-    title : {
+    title: {
         type: String,
         require: true
     },
@@ -14,7 +14,7 @@ const postsSchema = new Schema({
         require: true,
     }
 },
-{ collection: 'posts' }
+    { collection: 'posts' }
 )
 
 const Posts = models.Posts || model("Posts", postsSchema);

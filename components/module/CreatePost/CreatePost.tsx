@@ -8,11 +8,13 @@ import { NextPage } from "next";
 
 
 interface ICreatePost {
-    onSelected: (select:number) => void;
+    onSelected: (select: number) => void;
 }
 
-const CreatePost: NextPage<ICreatePost> = ({onSelected}) => {
+const CreatePost: NextPage<ICreatePost> = ({ onSelected }) => {
     const { quill, quillRef } = useQuill();
+
+    const [imageBuffer, setImageBuffer] = useState<any>(null);
 
     const [subjectValue, setSubjectValue] = useState<string>("")
 
@@ -22,13 +24,26 @@ const CreatePost: NextPage<ICreatePost> = ({onSelected}) => {
 
     useEffect(() => {
         if (quill) {
-            setValue(quillRef.current.firstChild.innerHTML)
+            quill.on('text-change', () => {
+                setValue(quillRef.current.firstChild.innerHTML)
+            });
+
+            
         }
-    }, [quill, quillRef])
+    }, [quill, quillRef]);
 
 
     const handleFileInput = (e: ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
+        let reader = new FileReader();
+        const file:any = e.target.files?.[0];
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          setImageBuffer(reader.result);
+        };
+        reader.onerror = err => {
+            console.log(err);
+
+        }
 
         file && setSelectedFile(file);
         setDataPost({ ...dataPost, postImage: file });
@@ -45,31 +60,29 @@ const CreatePost: NextPage<ICreatePost> = ({onSelected}) => {
         postImage: null,
     });
 
-    const sendData = async() => {
+    const sendData = async () => {
         if (quill) {
             const formData = {
-                value: value,
-                postImage: dataPost.postImage.name,
                 title: subjectValue,
+                image: imageBuffer,
+                body: value
             };
-    
             console.log("send data", formData);
-            quill.on('text-change', () => {
-                console.log(quillRef.current.firstChild.innerHTML);
-            });
             const res = await fetch("api/post/posts", {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: { "Content-Type": "application/json" },
             });
-            const data = await res.json();
-            if (data.status === 200){
-                onSelected(0)
-                console.log("sned data:", formData);
-            }
-            else {
-                console.log("error to send data");
-                
+
+            if (res.ok) {
+                const data = await res.json();
+                if (data.status === 200) {
+                    onSelected(0);
+                } else {
+                    console.error("خطای سرور:", data.status);
+                }
+            } else {
+                console.error("خطای شبکه در درخواست fetch");
             }
         }
     }
