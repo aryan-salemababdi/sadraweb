@@ -41,7 +41,11 @@ const DashboardPage: NextPage<IDashboard> = ({ data }) => {
                             <Main data={data} />
                             :
                             select === 1 ?
-                                <CreatePost />  
+                                <CreatePost 
+                                onSelected={(select)=>{
+                                    setSelect(select)
+                                }}
+                                />  
                                 :
                                 ""
                     }

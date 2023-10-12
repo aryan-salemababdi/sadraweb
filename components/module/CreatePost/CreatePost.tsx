@@ -1,12 +1,20 @@
+"use client"
 import Image from "next/image";
 import React, { useState, ChangeEvent, useEffect } from "react";
-import { Formik, Form, Field } from "formik";
-import { Box, Typography, Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { useQuill } from "react-quilljs";
 import "react-quill/dist/quill.snow.css";
+import { NextPage } from "next";
 
-const CreatePost = () => {
+
+interface ICreatePost {
+    onSelected: (select: number) => void;
+}
+
+const CreatePost: NextPage<ICreatePost> = ({ onSelected }) => {
     const { quill, quillRef } = useQuill();
+
+    const [imageBuffer, setImageBuffer] = useState<any>(null);
 
     const [subjectValue, setSubjectValue] = useState<string>("")
 
@@ -16,13 +24,26 @@ const CreatePost = () => {
 
     useEffect(() => {
         if (quill) {
-            setValue(quillRef.current.firstChild.innerHTML)
+            quill.on('text-change', () => {
+                setValue(quillRef.current.firstChild.innerHTML)
+            });
+
+            
         }
-    }, [quill, quillRef])
+    }, [quill, quillRef]);
 
 
     const handleFileInput = (e: ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
+        let reader = new FileReader();
+        const file:any = e.target.files?.[0];
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          setImageBuffer(reader.result);
+        };
+        reader.onerror = err => {
+            console.log(err);
+
+        }
 
         file && setSelectedFile(file);
         setDataPost({ ...dataPost, postImage: file });
@@ -39,18 +60,31 @@ const CreatePost = () => {
         postImage: null,
     });
 
-    const sendData = () => {
+    const sendData = async () => {
         if (quill) {
-            console.log("send data");
-            console.log(dataPost.postImage);
-            quill.on('text-change', () => {
-                console.log(quillRef.current.firstChild.innerHTML);
+            const formData = {
+                title: subjectValue,
+                image: imageBuffer,
+                body: value
+            };
+            console.log("send data", formData);
+            const res = await fetch("api/post/posts", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: { "Content-Type": "application/json" },
             });
-            console.log(subjectValue);
-            console.log(value, "this is quill editor")
+
+            if (res.ok) {
+                const data = await res.json();
+                if (data.status === 200) {
+                    onSelected(0);
+                } else {
+                    console.error("خطای سرور:", data.status);
+                }
+            } else {
+                console.error("خطای شبکه در درخواست fetch");
+            }
         }
-
-
     }
     return (
         <>
