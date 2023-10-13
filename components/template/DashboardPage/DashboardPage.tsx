@@ -5,12 +5,14 @@ import { Grid } from '@mui/material';
 import MainNavigation from '@/components/module/MainNavigation/MainNavigation';
 import Main from '@/components/module/Main/Main';
 import CreatePost from "@/components/module/CreatePost/CreatePost";
+import UpdatePost from "@/components/module/Update/UpdatePost";
 
 
 interface IDashboard {
     data: {
-        userId: number;
-        id: number;
+        _id: string;
+        __v: number;
+        image: string;
         title: string;
         body: string;
     }[];
@@ -21,6 +23,9 @@ interface IDashboard {
 const DashboardPage: NextPage<IDashboard> = ({ data }) => {
 
     const [select, setSelect] = useState<number>(0);
+
+    const [update, setUpdate] = useState<any>(null);
+
 
     return (
         <div style={{ height: "100%", margin: "150px 0px" }}>
@@ -38,7 +43,15 @@ const DashboardPage: NextPage<IDashboard> = ({ data }) => {
                 >
                     {
                         select === 0 ?
-                            <Main data={data} />
+                            <Main
+                                data={data}
+                                getDataPost={(data) => {
+                                    setUpdate(data)
+                                }}
+                                onSelected={(select) => {
+                                    setSelect(select)
+                                }}
+                            />
                             :
                             select === 1 ?
                                 <CreatePost
@@ -47,7 +60,15 @@ const DashboardPage: NextPage<IDashboard> = ({ data }) => {
                                     }}
                                 />
                                 :
-                                ""
+                                update ? 
+                                <UpdatePost 
+                                data={update}
+                                onSelected={(select) => {
+                                    setSelect(select)
+                                }}
+                                />
+                                :
+                                "صفحه ای یافت نشد!"
                     }
                 </Grid>
                 <Grid
