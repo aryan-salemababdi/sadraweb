@@ -13,27 +13,57 @@ import {
     CardHeader,
     Divider,
     Avatar,
-  } from "@mui/material";
+} from "@mui/material";
 
 
-  interface IBlog {
+interface IBlog {
     data: {
-      userId: number;
-      id: number;
-      title: string;
-      body: string;
+        _id: string;
+        __v: number;
+        image: string;
+        title: string;
+        body: string;
     }[];
-  }
+    getDataPost: (
+        data: {
+            _id: string;
+            __v: number;
+            image: string;
+            title: string;
+            body: string;
+        }[]) => void;
+    onSelected: (select: number) => void;
+}
 
-const Main: NextPage<IBlog> = ({data}) => {
+const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
 
     const router = useRouter();
 
     function getSummary(item: any) {
-      const summary = item.body.split(" ").slice(0, 10).join(" ");
-      return summary;
+        const summary = item.body.split(" ").slice(0, 10).join(" ");
+        return summary;
     }
 
+    const deletePost = async(id:any) => {
+        const formData = {
+            id
+        };
+        const response = await fetch("api/post/posts", {
+            method: "DELETE",
+            body: JSON.stringify(formData),
+            headers: { "Content-Type": "application/json" },
+          });
+      if (response.status === 200){
+        console.log("post deleted");
+      }else {
+        console.log("error", response.status);
+        
+      }
+
+
+    }
+    
+ 
     return (
         <>
             <Grid
@@ -48,8 +78,8 @@ const Main: NextPage<IBlog> = ({data}) => {
                 justifyContent="center"
                 p={2}
             >
-                {data.slice(data.length - 4, data.length - 1).map((item: any) => (
-                    <Box m={2} key={item.id}>
+                {data.map((item: any) => (
+                    <Box m={2} key={item._id}>
                         <Card
                             sx={{
                                 height: "100%",
@@ -59,13 +89,13 @@ const Main: NextPage<IBlog> = ({data}) => {
                         >
                             <CardHeader
                                 avatar={
-                                    <Avatar src="images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
+                                    <Avatar src="/images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
                                 }
                                 title="امیر صدرا نورمحمدی"
                             />
                             <CardMedia
                                 component="img"
-                                image="images/journalist.jpg"
+                                image={item.image}
                                 alt="Paella dish"
                             />
                             <CardContent>
@@ -93,37 +123,44 @@ const Main: NextPage<IBlog> = ({data}) => {
                                         sx={{ borderRadius: 3, width: "100%" }}
                                         color="error"
                                         onClick={() => {
-                                            router.push(`/blogs/${item.id}`)
+                                            router.push(`/blogs/${item.title}`)
                                         }}
                                     >
                                         مطالعه مقاله
                                     </Button>
-                                    
+
                                     <Box>
-                                     <Box display="flex" justifyContent="center">
-                                       <Button variant="outlined"
-                                        size="small"
-                                        sx={{ borderRadius: 3, width: "100%" }}
-                                        color="error"
-                                    >
-                                         حذف پست
-                                    </Button>
-                                    </Box>
-                                    <Box display="flex" justifyContent="center">
-                                    <Button variant="outlined"
-                                        size="small"
-                                        sx={{ borderRadius: 3, margin:"10px"}}
-                                        color="error"
-                                    >
-                                     تغییرات
-                                    </Button>
-                                    </Box>
+                                        <Box display="flex" justifyContent="center">
+                                            <Button variant="outlined"
+                                                size="small"
+                                                sx={{ borderRadius: 3, width: "100%" }}
+                                                color="error"
+                                                onClick={()=> deletePost(item._id)}
+                                            >
+                                                حذف پست
+                                            </Button>
+                                        </Box>
+                                        <Box display="flex" justifyContent="center">
+                                            <Button variant="outlined"
+                                                size="small"
+                                                sx={{ borderRadius: 3, margin: "10px" }}
+                                                color="error"
+                                                onClick={() => {
+                                                    getDataPost(item)
+                                                    onSelected(-1)
+                                                }}
+                                            >
+                                                تغییرات
+                                            </Button>
+                                        </Box>
                                     </Box>
                                 </CardActions>
                             </Grid>
                         </Card>
                     </Box>
                 ))}
+                <Box></Box>
+                <Box></Box>
             </Grid>
         </>
     )

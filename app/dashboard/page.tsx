@@ -1,15 +1,14 @@
 import DashboardPage from '@/components/template/DashboardPage/DashboardPage';
 import React from 'react'
 
-const Dashboard = async() => {
-    const res = await fetch("https://fake-blog-api.vercel.app/posts", {
-        cache: "force-cache",
-      });
+const Dashboard = async () => {
+  const res = await import("../api/post/posts/route");
 
-    const data = await res.json();
+  const data = await (await res.GET()).json();
+
   return (
     <>
-    <DashboardPage data={data} />
+      <DashboardPage data={data.data} />
     </>
   )
 }
