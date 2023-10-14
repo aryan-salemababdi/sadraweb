@@ -98,7 +98,7 @@ const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
                                 component="img"
                                 image={item.image}
                                 sx={{height:"200px"}}
-                                alt="Paella dish"
+                                alt={item.title}
                             />
                             <CardContent>
                                 <Typography

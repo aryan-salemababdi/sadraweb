@@ -1,6 +1,7 @@
 "use client";
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
+import parse from 'html-react-parser';
 import {
   Typography,
   Box,
@@ -18,8 +19,9 @@ import {
 
 interface IBlogLanding {
   data: {
-    userId: number;
-    id: number;
+    _id: string;
+    __v: number;
+    image: string;
     title: string;
     body: string;
   }[];
@@ -29,7 +31,7 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
   const router = useRouter();
 
   function getSummary(item: any) {
-    const summary = item.body.split(" ").slice(0, 10).join(" ");
+    const summary = parse(item.body.split(" ").slice(0, 10).join(" "));
     return summary;
   }
 
@@ -53,63 +55,78 @@ const Blog: NextPage<IBlogLanding> = ({ data }) => {
             justifyContent="center"
             p={2}
           >
-            {data.slice(data.length-4, data.length-1).map((item: any) => (
-              <Box m={2} key={item.id}>
-              <Card
-              sx={{
-                height: "100%",
-                display:"flex",
-                flexDirection:"column"
-              }}
+            {data.slice(data.length - 3, data.length - 1).map((item: any) => (
+              <Box m={2} key={item._id}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column"
+                  }}
                 >
-                <CardHeader
-                  avatar={
-                    <Avatar src="images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
-                  }
-                  title="امیر صدرا نورمحمدی"
-                />
-                <CardMedia
-                  component="img"
-                  image="images/journalist.jpg"
-                  alt="Paella dish"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    textAlign="right"
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    textAlign="right"
-                  >
-                    {getSummary(item)}
-                  </Typography>
-                </CardContent>
-                <Grid sx={{ marginTop: "auto" }}>
-                  <Divider variant="middle" sx={{ marginTop: "auto" }} />
-                  <CardActions>
-                    <Button variant="outlined"
-                      size="small"
-                      sx={{ borderRadius: 3, width: "100%" }}
-                      color="error"
-                      onClick={() => {
-                        router.push(`/blogs/${item.id}`)
-                      }}
+                  <CardHeader
+                    avatar={
+                      <Avatar src="images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
+                    }
+                    title="امیر صدرا نورمحمدی"
+                  />
+                  <CardMedia
+                      component="img"
+                      image={item.image}
+                      sx={{height:"200px"}}
+                      alt={item.title}
+                  />
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="div"
+                      textAlign="right"
                     >
-                      مطالعه مقاله
-                    </Button>
-                  </CardActions>
-                </Grid>
-              </Card>
+                      {item.title}
+                    </Typography>
+                    {getSummary(item)}
+                  </CardContent>
+                  <Grid sx={{ marginTop: "auto" }}>
+                    <Divider variant="middle" sx={{ marginTop: "auto" }} />
+                    <CardActions>
+                      <Button variant="outlined"
+                        size="small"
+                        sx={{ borderRadius: 3, width: "100%" }}
+                        color="error"
+                        onClick={() => {
+                          router.push(`/blogs/${item._id}`)
+                        }}
+                      >
+                        مطالعه مقاله
+                      </Button>
+                    </CardActions>
+                  </Grid>
+                </Card>
               </Box>
             ))}
           </Grid>
         </Container>
+        <Box display="flex" justifyContent="center">
+          <Button
+            variant="contained"
+            size="small"
+            sx={{ borderRadius: 3, }}
+            color="error"
+            onClick={() => {
+              router.push("/blogs")
+            }}
+          >
+            <Typography
+              fontWeight="bold"
+              variant="h6"
+              textAlign="right"
+              color="white"
+            >
+              وبلاگ
+            </Typography>
+          </Button>
+        </Box>
       </Box>
     </div>
   );

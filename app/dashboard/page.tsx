@@ -1,14 +1,22 @@
 import DashboardPage from '@/components/template/DashboardPage/DashboardPage';
+import { cookies } from 'next/headers';
 import React from 'react'
+import Login from '../login/page';
 
 const Dashboard = async () => {
   const res = await import("../api/post/posts/route");
 
   const data = await (await res.GET()).json();
 
+  const cookieStore = cookies()
+  const theme = cookieStore.get("sadraweb")
+ 
+
   return (
     <>
-      <DashboardPage data={data.data} />
+      {
+        theme ? <DashboardPage data={data.data} /> :  <Login />
+      }
     </>
   )
 }

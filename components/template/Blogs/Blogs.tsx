@@ -1,6 +1,7 @@
 "use client"
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
+import parse from 'html-react-parser';
 import {
   Typography,
   Box,
@@ -18,8 +19,9 @@ import {
 
 interface IBlogs {
   data: {
-    userId: number;
-    id: number;
+    _id: string;
+    __v: number;
+    image: string;
     title: string;
     body: string;
   }[];
@@ -30,9 +32,9 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
   const router = useRouter();
 
   function getSummary(item: any) {
-    const summary = item.body.split(" ").slice(0, 10).join(" ");
+    const summary = parse(item.body.split(" ").slice(0, 10).join(" "));
     return summary;
-  }
+}
 
 
   return (
@@ -48,7 +50,7 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
         p={2}
       >
         {data.map((item: any) => (
-          <Box m={2} key={item.id}>
+          <Box m={2} key={item._id}>
             <Card
               sx={{
                 height: "100%",
@@ -64,8 +66,9 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
               />
               <CardMedia
                 component="img"
-                image="images/journalist.jpg"
-                alt="Paella dish"
+                image={item.image}
+                alt={item.title}
+                sx={{height:"200px"}}
               />
               <CardContent>
                 <Typography
@@ -92,7 +95,7 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
                     sx={{ borderRadius: 3, width: "100%" }}
                     color="error"
                     onClick={() => {
-                      router.push(`/blogs/${item.id}`)
+                      router.push(`/blogs/${item._id}`)
                     }}
                   >
                     مطالعه مقاله
