@@ -1,6 +1,7 @@
 "use client";
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
+import parse from 'html-react-parser';
 import {
     Typography,
     Box,
@@ -40,7 +41,7 @@ const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
     const router = useRouter();
 
     function getSummary(item: any) {
-        const summary = item.body.split(" ").slice(0, 10).join(" ");
+        const summary = parse(item.body.split(" ").slice(0, 10).join(" "));
         return summary;
     }
 
@@ -96,24 +97,19 @@ const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
                             <CardMedia
                                 component="img"
                                 image={item.image}
+                                sx={{height:"200px"}}
                                 alt="Paella dish"
                             />
                             <CardContent>
                                 <Typography
                                     gutterBottom
-                                    variant="h5"
+                                    variant="h4"
                                     component="div"
                                     textAlign="right"
                                 >
                                     {item.title}
                                 </Typography>
-                                <Typography
-                                    variant="body2"
-                                    color="text.secondary"
-                                    textAlign="right"
-                                >
                                     {getSummary(item)}
-                                </Typography>
                             </CardContent>
                             <Grid sx={{ marginTop: "auto" }}>
                                 <Divider variant="middle" sx={{ marginTop: "auto" }} />
