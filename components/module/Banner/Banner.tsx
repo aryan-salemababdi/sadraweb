@@ -51,10 +51,10 @@ const Banner: NextPage = () => {
           </Grid>
         </Grid>
         <Grid sx={{ textAlign: "right" }}>
-          <Typography fontWeight="bold" variant="h3">
+          <Typography fontWeight="bold" variant="h4">
             <span style={{ color: "red" }}>سلام</span>، من
           </Typography>
-          <Typography fontWeight="bold" variant="h2" sx={{ textAlign: "right" }}>
+          <Typography fontWeight="bold" variant="h3" sx={{ textAlign: "right" }}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -68,7 +68,7 @@ const Banner: NextPage = () => {
             />
           </Typography>
           <Typography fontWeight="bold" variant="h5">
-            نویسنده و فیلسوف
+           نویسنده و روزنامه نگار
           </Typography>
           <Button
             variant="contained"

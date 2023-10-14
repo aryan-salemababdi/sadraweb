@@ -3,15 +3,14 @@ import React from 'react'
 
 const BlogsPage = async () => {
   
-  const res = await fetch("https://fake-blog-api.vercel.app/posts", {
-    cache: "force-cache",
-  });
+  const res = await import("@/app/api/post/posts/route");
 
-  const data = await res.json();
+  const data = await (await res.GET()).json();  
+
 
   return (
     <>
-      <Blogs data ={data} />
+      <Blogs data ={data.data} />
     </>
   )
 }
