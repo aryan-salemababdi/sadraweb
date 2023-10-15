@@ -119,7 +119,7 @@ const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
                                         sx={{ borderRadius: 3, width: "100%" }}
                                         color="error"
                                         onClick={() => {
-                                            router.push(`/blogs/${item.title}`)
+                                            router.push(`/blogs/${item._.id}`)
                                         }}
                                     >
                                         مطالعه مقاله
