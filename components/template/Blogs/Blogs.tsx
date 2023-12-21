@@ -32,10 +32,9 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
   const router = useRouter();
 
   function getSummary(item: any) {
-    const summary = parse(item.body.split(" ").slice(0, 10).join(" "));
+    const summary = parse(item.split(" ").slice(0, 10).join(" "));
     return summary;
 }
-
 
   return (
     <div style={{ height: "100%", margin: "100px 0px" }}>
@@ -79,13 +78,11 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
                 >
                   {item.title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  textAlign="right"
+                <span
+                style={{textAlign:"right", color:"GrayText", fontSize:"12px"}}
                 >
-                  {getSummary(item)}
-                </Typography>
+                  {getSummary(item.body)}
+                </span>
               </CardContent>
               <Grid sx={{ marginTop: "auto" }}>
                 <Divider variant="middle" sx={{ marginTop: "auto" }} />
