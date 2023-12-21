@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
 import parse from 'html-react-parser';
