@@ -36,6 +36,8 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
     return summary;
 }
 
+console.log(data)
+
   return (
     <div style={{ height: "100%", margin: "100px 0px" }}>
       <Grid
