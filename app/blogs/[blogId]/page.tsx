@@ -29,7 +29,7 @@ const BlogId: NextPage<BlogId> = async({params}) => {
         }}
       >
         <Typography fontWeight="bold" variant="h5">
-          پروژه مورد نظر یافت نشد
+          صفحه مورد نظر یافت نشد
         </Typography>
       </Box>
     )}
