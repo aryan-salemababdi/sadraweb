@@ -1,15 +1,17 @@
 import Blogs from '@/components/template/Blogs/Blogs';
-import Posts from "@/models/Posts";
-import React from 'react'
+import { cookies } from 'next/headers';
 
 const BlogsPage = async () => {
   
-  const data = await Posts.find();
+  const res = await import("../api/post/posts/route");
 
+  const data = await (await res.GET()).json();
 
   return (
     <>
-      <Blogs data ={data} />
+    {
+      data ? <Blogs data ={data.data} /> : ""
+    }
     </>
   )
 }

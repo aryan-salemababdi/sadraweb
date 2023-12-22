@@ -14,7 +14,6 @@ import {
   CardHeader,
   Divider,
   Avatar,
-  Container
 } from "@mui/material";
 
 interface IBlogs {
