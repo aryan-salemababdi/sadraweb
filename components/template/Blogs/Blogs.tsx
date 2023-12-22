@@ -23,7 +23,7 @@ interface IBlogs {
     image: string;
     title: string;
     body: string;
-  };
+  }[];
 }
 
 const Blogs:NextPage<IBlogs> = ({data}) => {
