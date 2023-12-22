@@ -1,16 +1,20 @@
 import Blogs from '@/components/template/Blogs/Blogs';
 import { cookies } from 'next/headers';
 
-const BlogsPage = async () => {
+
+const BlogsPage = async() => {
   
   const res = await import("../api/post/posts/route");
 
   const data = await (await res.GET()).json();
 
+  const cookieStore = cookies()
+  const theme = cookieStore.get("sadraweb")
+
   return (
     <>
     {
-      data ? <Blogs data ={data.data} /> : ""
+       theme ? <Blogs data ={data.data} /> : <Blogs data ={data.data} />
     }
     </>
   )
