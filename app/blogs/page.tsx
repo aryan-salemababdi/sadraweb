@@ -4,6 +4,9 @@ const BlogsPage = async () => {
   
   var res = await import("@/app/api/post/posts/route");
   var data = await (await res.GET()).json();
+
+  console.log(data)
+
   return (
     <>
        <Blogs data ={data.data} />

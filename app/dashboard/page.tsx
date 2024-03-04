@@ -8,6 +8,8 @@ const Dashboard = async () => {
 
   var data = await (await res.GET()).json();
 
+  console.log(data)
+
   const cookieStore = cookies()
   const theme = cookieStore.get("sadraweb")
  
