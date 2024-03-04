@@ -4,9 +4,9 @@ import React from 'react'
 import Login from '../login/page';
 
 const Dashboard = async () => {
-  var res = await import("../api/post/posts/route");
+  const res = await import("../api/post/posts/route");
 
-  var data = await (await res.GET()).json();
+  const data = await (await res.GET()).json();
 
   console.log(data)
 
