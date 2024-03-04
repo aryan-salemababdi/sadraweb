@@ -4,9 +4,9 @@ import React from 'react'
 import Login from '../login/page';
 
 const Dashboard = async () => {
-  const res = await import("../api/post/posts/route");
+  var res = await import("../api/post/posts/route");
 
-  const data = await (await res.GET()).json();
+  var data = await (await res.GET()).json();
 
   const cookieStore = cookies()
   const theme = cookieStore.get("sadraweb")
