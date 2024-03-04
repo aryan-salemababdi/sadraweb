@@ -5,18 +5,20 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Image from 'next/image'
 import { Box, Button, Card, Divider, Grid, Typography } from '@mui/material'
+import  myImage  from "../../../public/images/Sadra2.jpg";
+
 
 interface IMainNavigation {
     selectHandller: (selector: number) => void;
 }
 
-const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
+const MainNavigation: NextPage<IMainNavigation> = ({ selectHandller }) => {
     return (
         <>
             <Card sx={{ textAlign: "center", height: "310px", width: "200px", display: { md: "block", sm: "none", xs: "none" } }}>
                 <Grid m="15px 0px">
                     <Image
-                        src="/images/sadra2.jpg"
+                        src={myImage}
                         alt="sadraProfile"
                         width={100}
                         height={100}
@@ -28,7 +30,7 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
                 </Typography>
                 <Divider />
                 <Grid m="10px 0px">
-                    <Button onClick={()=> selectHandller(0)}>
+                    <Button onClick={() => selectHandller(0)}>
                         <Typography fontWeight="bold" variant="h5">
                             پنل کاربری
                         </Typography>
@@ -36,7 +38,7 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
                 </Grid>
                 <Divider />
                 <Grid m="10px 0px">
-                <Button onClick={()=> selectHandller(1)}>
+                    <Button onClick={() => selectHandller(1)}>
                         <Typography fontWeight="bold" variant="h5">
                             ایجاد پست
                         </Typography>
@@ -52,12 +54,12 @@ const MainNavigation: NextPage<IMainNavigation> = ({selectHandller}) => {
             >
                 <Card sx={{ display: "flex" }}>
                     <Grid>
-                    <Button onClick={()=> selectHandller(0)}>
+                        <Button onClick={() => selectHandller(0)}>
                             <HomeIcon />
                         </Button>
                     </Grid>
                     <Grid>
-                    <Button onClick={()=> selectHandller(1)}>
+                        <Button onClick={() => selectHandller(1)}>
                             <PostAddIcon />
                         </Button>
                     </Grid>
