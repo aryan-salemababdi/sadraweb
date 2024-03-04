@@ -2,9 +2,9 @@ import React from 'react'
 import Blog from './Blog';
 
 const DataBlog = async () => {
-  const res = await import("../../../app/api/post/posts/route");
+  const res = await fetch("https://sadraweb.vercel.app/api/post/posts", {cache: "no-store"})
+  const data = await res.json();
 
-  const data = await (await res.GET()).json();  
   return (
     <>
         <Blog data={data.data} />

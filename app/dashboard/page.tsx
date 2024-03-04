@@ -4,12 +4,9 @@ import React from 'react'
 import Login from '../login/page';
 
 const Dashboard = async () => {
-  const res = await import("../api/post/posts/route");
-
-  const data = await (await res.GET()).json();
-
-  console.log(data)
-
+  const res = await fetch("https://sadraweb.vercel.app/api/post/posts", {cache: "no-store"})
+  const data = await res.json();
+  
   const cookieStore = cookies()
   const theme = cookieStore.get("sadraweb")
  

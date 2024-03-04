@@ -2,10 +2,8 @@ import Blogs from '@/components/template/Blogs/Blogs';
 
 const BlogsPage = async () => {
   
-  const res = await import("@/app/api/post/posts/route");
-  const data = await (await res.GET()).json();
-
-  console.log(data)
+  const res = await fetch("https://sadraweb.vercel.app/api/post/posts", {cache: "no-store"})
+  const data = await res.json();
 
   return (
     <>

@@ -6,11 +6,11 @@ import type { Metadata } from 'next';
 
 
 const vazir = localFont({
-  src:[{
+  src: [{
     path: "../public/fonts/Vazir.ttf",
     weight: "100",
-    style : "normal"
-}]
+    style: "normal"
+  }]
 })
 
 
@@ -26,15 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa">
-        <body className={vazir.className}>
-        <header>
-          <Header>{children}</Header>
-        </header>
-        {children}
-        <footer>
-          <Footer />
-        </footer>
-        </body>
+      <body className={vazir.className}>
+          <header>
+            <Header>{children}</Header>
+          </header>
+          {children}
+          <footer>
+            <Footer />
+          </footer>
+      </body>
     </html>
   )
 }
