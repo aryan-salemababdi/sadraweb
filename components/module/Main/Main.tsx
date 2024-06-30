@@ -90,7 +90,7 @@ const Main: NextPage<IBlog> = ({ data, getDataPost, onSelected }) => {
                         >
                             <CardHeader
                                 avatar={
-                                    <Avatar src="../../images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
+                                    <Avatar src="/images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
                                 }
                                 title="امیر صدرا نورمحمدی"
                             />
