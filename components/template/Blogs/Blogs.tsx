@@ -47,7 +47,7 @@ const Blogs: NextPage<IBlogs> = ({ data }) => {
         }}
         p={2}
       >
-        {data.length === 0 ? (
+        {!data ? (
           <Typography variant="h6" textAlign="center">
             داده‌ای موجود نیست.
           </Typography>
