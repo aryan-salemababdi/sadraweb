@@ -14,13 +14,13 @@ export default async function sitemap() {
         console.log("Fetched Data:", data);
 
         const routes = staticRoutes.map((route) => ({
-            url: `https://www.aryansalemabadi.com${route}`,
+            url: `https://www.aryan-salemabadi.com${route}`,
             lastModified: new Date().toISOString(),
         }));
 
         const blogs = Array.isArray(data?.data) 
             ? data.data.map((item: { _id: string }) => ({
-                url: `https://www.aryansalemabadi.com/composition/${item._id}`,
+                url: `https://www.aryan-salemabadi.com/composition/${item._id}`,
                 lastModified: new Date().toISOString(),
             }))
             : [];
