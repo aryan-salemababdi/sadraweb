@@ -29,6 +29,8 @@ interface IBlogs {
 const Blogs: NextPage<IBlogs> = ({ data }) => {
   const router = useRouter();
 
+  console.log(data)
+
   // فرض بر این است که item یک رشته (متن) است
   function getSummary(text: string) {
     const summary = parse(text.split(" ").slice(0, 10).join(" "));
