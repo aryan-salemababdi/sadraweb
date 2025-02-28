@@ -1,5 +1,6 @@
+import React from 'react';
+const ProfileImage = require("../../../public/images/Aryan.jpg").default;
 import { NextPage } from 'next';
-import React from 'react'
 import { Avatar, Box, Grid, Typography, Container } from "@mui/material";
 import sanitizeHtml from "sanitize-html";
 import Image from 'next/image';
@@ -20,7 +21,7 @@ const BlogPage: NextPage<IBlogPage> = ({ data }) => {
         <Box sx={{ direction: "rtl" }} m="100px 0px">
             <Container maxWidth="lg">
                 <Grid container>
-                    <Grid item xs={12} mt={9} display="flex" justifyContent="space-between">
+                    <Grid item xs={12} mt={9} display="flex" justifyContent="center">
                         <Typography
                             component="h2"
                             variant="h4"
@@ -42,15 +43,15 @@ const BlogPage: NextPage<IBlogPage> = ({ data }) => {
                     </Grid>
                     <Grid item xs={12} mt={7} display="flex" alignItems="center">
                         <Avatar
-                            src="/images/sadra2.jpg"
+                            src={ProfileImage}
                             sx={{ width: 80, height: 80, marginLeft: 2 }}
                         />
                         <Box component="div">
                             <Typography component="p" variant="h5" fontWeight={700} color="red">
-                                امیر صدرا نورمحمدی
+                                آرین سالم آبادی
                             </Typography>
                             <Typography component="p" variant="subtitle1" color="text.secondary">
-                                نویسنده و روزنامه نگار
+                                مهندس نرم افزار و آهنگساز
                             </Typography>
                         </Box>
                     </Grid>

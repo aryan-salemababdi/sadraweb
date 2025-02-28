@@ -81,7 +81,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item p={1}>
               <Typography fontWeight="bold" variant="h5">
-                SADR<span style={{color:"red"}}>A</span>
+                Aryan <span style={{color:"red"}}>Salemabadi</span>
               </Typography>
             </Grid>
             <Grid item>
@@ -122,12 +122,12 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                           </MenuItem>
                         </Link>
                         <Link
-                          href="/blogs"
+                          href="/composition"
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           <MenuItem onClick={handleClose}>
                             <Typography fontWeight="bold" variant="h6">
-                              وبلاگ
+                             قطعات موسیقی من
                             </Typography>
                           </MenuItem>
                         </Link>
@@ -135,11 +135,6 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                           href="/contactme"
                           style={{ textDecoration: "none", color: "black" }}
                         >
-                          <MenuItem onClick={handleClose}>
-                            <Typography fontWeight="bold" variant="h6">
-                             ارتباط با من
-                            </Typography>
-                          </MenuItem>
                         </Link>
                       </Menu>
                     </ListItem>
@@ -148,20 +143,6 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                     item
                     sx={{ display: { md: "block", sm: "none", xs: "none" } }}
                   >
-                    <ListItem>
-                      <Link
-                        href="/contactme"
-                        style={{ textDecoration: "none", color: "#ffffff" }}
-                      >
-                        <Typography
-                          fontWeight="bold"
-                          variant="h6"
-                          color="white"
-                        >
-                       ارتباط با من
-                        </Typography>
-                      </Link>
-                    </ListItem>
                   </Grid>
                   <Grid
                     item
@@ -174,7 +155,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                   >
                     <ListItem>
                       <Link
-                        href="/blogs"
+                        href="/composition"
                         style={{ textDecoration: "none", color: "#ffffff" }}
                       >
                         <Typography
@@ -182,7 +163,7 @@ const Header: NextPage<HeaderProps> = ({ children }) => {
                           variant="h6"
                           color="white"
                         >
-                       وبلاگ
+                       قطعات موسیقی من
                         </Typography>
                       </Link>
                     </ListItem>

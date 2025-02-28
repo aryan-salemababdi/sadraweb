@@ -54,7 +54,7 @@ const LoginPage = () => {
     });
 
     return (
-        <div style={{ margin: "100px" }}>
+        <div style={{ margin: "100px", height: "100vh" }}>
             <Grid container display="flex" justifyContent="center">
                 <Grid item>
                     <Card sx={{ borderTop: "10px solid red", padding: "20px" }}>

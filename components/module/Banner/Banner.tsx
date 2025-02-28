@@ -40,12 +40,6 @@ const Banner: NextPage = () => {
           <br />
           <Grid>
             <Link href="/">
-              <FacebookIcon sx={{ fontSize: "30px" }} />
-            </Link>
-          </Grid>
-          <br />
-          <Grid>
-            <Link href="/">
               <LinkedInIcon sx={{ fontSize: "30px" }} />
             </Link>
           </Grid>
@@ -58,7 +52,7 @@ const Banner: NextPage = () => {
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("امیر صدرا نورمحمدی هستم")
+                  .typeString("آرین سالم آبادی هستم")
                   .pauseFor(2000)
                   .start()
               }}
@@ -68,7 +62,7 @@ const Banner: NextPage = () => {
             />
           </Typography>
           <Typography fontWeight="bold" variant="h5">
-           نویسنده و روزنامه نگار
+           مهندس نرم افزار و آهنگساز
           </Typography>
           <Button
             variant="contained"
@@ -79,7 +73,7 @@ const Banner: NextPage = () => {
             }}
           >
             <Typography fontWeight="bold" variant="h6" textAlign="center">
-              وبلاگ من
+              قطعات من
             </Typography>
           </Button>
         </Grid>

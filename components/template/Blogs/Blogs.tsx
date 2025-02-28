@@ -59,9 +59,9 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
               >
                 <CardHeader
                   avatar={
-                    <Avatar src="images/Sadra1.jpg" sx={{ marginLeft: 1 }} />
+                    <Avatar src="images/Aryan.jpg" sx={{ marginLeft: 1 }} />
                   }
-                  title="امیر صدرا نورمحمدی"
+                  title="آرین سالم آبادی"
                 />
                 <CardMedia
                   component="img"
@@ -92,7 +92,7 @@ const Blogs:NextPage<IBlogs> = ({data}) => {
                       sx={{ borderRadius: 3, width: "100%" }}
                       color="error"
                       onClick={() => {
-                        router.push(`/blogs/${item._id}`)
+                        router.push(`/composition/${item._id}`)
                       }}
                     >
                       مطالعه مقاله

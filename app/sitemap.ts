@@ -4,12 +4,12 @@ export default async function sitemap() {
     const data = await (await res.GET()).json();
 
     const routes = staticRoutes.map((route:any) => ({
-        url: `https://www.amirsadranormohammadi.com${route}`,
+        url: `https://www.aryansalemabadi.com${route}`,
         lastModified: new Date().toString(),
     }));
 
     const blogs = data.data.map((item:any) => ({
-        url: `https://www.amirsadranormohammadi.com/blogs/${item._id}`,
+        url: `https://www.aryansalemabadi.com/composition/${item._id}`,
         lastModified: new Date().toString(),
     }));
 

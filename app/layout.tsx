@@ -15,8 +15,8 @@ const vazir = localFont({
 
 
 export const metadata: Metadata = {
-  title: 'امیر صدرا نورمحمدی',
-  description: 'وبسایت شخصی امیر صدرا نورمحمد',
+  title: 'وب سایت شخصی آرین سالم آبادی',
+  description: 'وبسایت شخصی آرین سالم آبادی',
 }
 
 export default function RootLayout({

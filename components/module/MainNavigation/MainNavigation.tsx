@@ -5,7 +5,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Image from 'next/image'
 import { Box, Button, Card, Divider, Grid, Typography } from '@mui/material'
-import  myImage  from "../../../public/images/Sadra2.jpg";
+import  myImage  from "../../../public/images/Aryan.jpg";
 
 
 interface IMainNavigation {
@@ -26,7 +26,7 @@ const MainNavigation: NextPage<IMainNavigation> = ({ selectHandller }) => {
                     />
                 </Grid>
                 <Typography fontWeight="bold" variant="h6" sx={{ margin: "10px 0px" }}>
-                    امیر صدرا نورمحمدی
+                   Aryan Salemabadi
                 </Typography>
                 <Divider />
                 <Grid m="10px 0px">
